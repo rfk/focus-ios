@@ -4,7 +4,7 @@
 
 import UIKit
 import Telemetry
-import Glean
+import NimbusStandalone
 
 protocol AppSplashController {
     var splashView: UIView { get }

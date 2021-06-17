@@ -11,12 +11,12 @@
         }
       },
       {
-        "package": "Glean",
-        "repositoryURL": "https://github.com/mozilla/glean-swift/",
+        "package": "Nimbus",
+        "repositoryURL": "https://github.com/rfk/nimbus-swift",
         "state": {
           "branch": null,
-          "revision": "e6c2d31b128be4fc59cdaf684acfbb419454866a",
-          "version": "39.0.2"
+          "revision": "9d48e857d78d0e089a106d68daf344567b12b6cd",
+          "version": "79.0.1"
         }
       },
       {
