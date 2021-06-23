@@ -5,6 +5,9 @@
 import UIKit
 import Telemetry
 import Glean
+import Nimbus
+import Viaduct
+import RustLog
 
 protocol AppSplashController {
     var splashView: UIView { get }
@@ -402,6 +405,36 @@ extension AppDelegate {
         }
 
         Glean.shared.initialize(uploadEnabled: Settings.getToggle(.sendAnonymousUsageData))
+
+        // Just seeing if we can use the Nimbus API, this isn't really expected
+        // to *do* anything just yet.
+        let profilePath = FileManager.default.containerURL(
+                forSecurityApplicationGroupIdentifier: AppInfo.sharedContainerIdentifier
+            )?
+            .appendingPathComponent("profile.profile")
+            .path
+        let dbPath = profilePath.flatMap {
+            URL(fileURLWithPath: $0).appendingPathComponent("nimbus.db").path
+        }
+        let myNimbus = try! Nimbus.create(
+            NimbusServerSettings(url: URL(string: "https://firefox.settings.services.mozilla.com")!),
+            appSettings: NimbusAppSettings(appName: "Focus", channel: "Nightly"),
+            dbPath: dbPath!,
+            resourceBundles: [],
+            errorReporter: { err in
+                try! { err in throw err }(err)
+            }
+        )
+        Viaduct.shared.useReqwestBackend()
+        if !RustLog.shared.tryEnable({ (level, tag, message) -> Bool in
+            let logString = "[RUST][\(tag ?? "no-tag")] \(message)"
+            print(logString)
+            return true
+        }) {
+            print("ERROR: Unable to enable logging from Rust")
+        }
+        myNimbus.initialize()
+        myNimbus.fetchExperiments()
     }
 
     func presentModal(viewController: UIViewController, animated: Bool) {
