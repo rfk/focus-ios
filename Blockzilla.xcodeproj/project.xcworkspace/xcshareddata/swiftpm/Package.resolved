@@ -21,11 +21,11 @@
       },
       {
         "package": "MozillaRustComponentsSwift",
-        "repositoryURL": "/Users/rfk/repos/mozilla/rust-components-swift",
+        "repositoryURL": "https://github.com/mozilla/rust-components-swift",
         "state": {
           "branch": null,
-          "revision": "857c67d877069f209747bcc640ca32f5b2591383",
-          "version": "0.3.0"
+          "revision": "c0a8a30b3637b0eac5992f0b445632de46256e63",
+          "version": "0.0.1"
         }
       },
       {
