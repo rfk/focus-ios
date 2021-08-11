@@ -21,11 +21,11 @@
       },
       {
         "package": "MozillaRustComponentsSwift",
-        "repositoryURL": "https://github.com/rfk/rust-components-swift",
+        "repositoryURL": "/Users/rfk/repos/mozilla/rust-components-swift",
         "state": {
           "branch": null,
-          "revision": "a360a0a6138a9355c5ebfdf871e37fd8c7147a7f",
-          "version": "0.2.0"
+          "revision": "857c67d877069f209747bcc640ca32f5b2591383",
+          "version": "0.3.0"
         }
       },
       {
@@ -44,15 +44,6 @@
           "branch": null,
           "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
           "version": "5.0.1"
-        }
-      },
-      {
-        "package": "SwiftKeychainWrapper",
-        "repositoryURL": "https://github.com/jrendel/SwiftKeychainWrapper",
-        "state": {
-          "branch": null,
-          "revision": "185a3165346a03767101c4f62e9a545a0fe0530f",
-          "version": "4.0.1"
         }
       },
       {

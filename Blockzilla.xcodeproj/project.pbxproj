@@ -61,11 +61,9 @@
 		74F94FF21FD9CA070047E629 /* Intro.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74F94FF41FD9CA070047E629 /* Intro.strings */; };
 		846A23182668CC4500DB3C37 /* FullScreen.js in Resources */ = {isa = PBXBuildFile; fileRef = 846A23172668CC4500DB3C37 /* FullScreen.js */; };
 		99335ED0268197A0009A0BAA /* Glean in Frameworks */ = {isa = PBXBuildFile; productRef = 99335ECF268197A0009A0BAA /* Glean */; };
-		993D6D4226AFE18E0075A820 /* Nimbus in Frameworks */ = {isa = PBXBuildFile; productRef = 993D6D4126AFE18E0075A820 /* Nimbus */; };
-		993D6D4426AFE18E0075A820 /* Viaduct in Frameworks */ = {isa = PBXBuildFile; productRef = 993D6D4326AFE18E0075A820 /* Viaduct */; };
-		993D6D4626AFE18E0075A820 /* RustLog in Frameworks */ = {isa = PBXBuildFile; productRef = 993D6D4526AFE18E0075A820 /* RustLog */; };
-		993D6D4826AFE18E0075A820 /* Logins in Frameworks */ = {isa = PBXBuildFile; productRef = 993D6D4726AFE18E0075A820 /* Logins */; };
-		993D6D4A26AFE18E0075A820 /* FxAClient in Frameworks */ = {isa = PBXBuildFile; productRef = 993D6D4926AFE18E0075A820 /* FxAClient */; };
+		99BC50AD26C3A2F300F1A6D5 /* RustLog in Frameworks */ = {isa = PBXBuildFile; productRef = 99BC50AC26C3A2F300F1A6D5 /* RustLog */; };
+		99BC50AF26C3A2F300F1A6D5 /* Nimbus in Frameworks */ = {isa = PBXBuildFile; productRef = 99BC50AE26C3A2F300F1A6D5 /* Nimbus */; };
+		99BC50B126C3A2F300F1A6D5 /* Viaduct in Frameworks */ = {isa = PBXBuildFile; productRef = 99BC50B026C3A2F300F1A6D5 /* Viaduct */; };
 		A89766DA1F57DCA9008183C5 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		B3481A551FCF261900CA2EA6 /* AutocompleteCustomUrlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3481A541FCF261900CA2EA6 /* AutocompleteCustomUrlViewController.swift */; };
 		B3AFC2BC1F7C0B9F001AEF38 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AFC2BB1F7C0B9F001AEF38 /* WebViewController.swift */; };
@@ -952,16 +950,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99BC50AF26C3A2F300F1A6D5 /* Nimbus in Frameworks */,
 				F85F7A292655AD5800395515 /* SnapKit in Frameworks */,
 				F85F7A2F2655AD5800395515 /* Telemetry in Frameworks */,
 				F85F7A2B2655AD5800395515 /* Fuzi in Frameworks */,
+				99BC50AD26C3A2F300F1A6D5 /* RustLog in Frameworks */,
 				F85F7A2D2655AD5800395515 /* Sentry in Frameworks */,
-				993D6D4426AFE18E0075A820 /* Viaduct in Frameworks */,
-				993D6D4226AFE18E0075A820 /* Nimbus in Frameworks */,
-				993D6D4826AFE18E0075A820 /* Logins in Frameworks */,
 				99335ED0268197A0009A0BAA /* Glean in Frameworks */,
-				993D6D4626AFE18E0075A820 /* RustLog in Frameworks */,
-				993D6D4A26AFE18E0075A820 /* FxAClient in Frameworks */,
+				99BC50B126C3A2F300F1A6D5 /* Viaduct in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1458,11 +1454,9 @@
 				F85F7A2C2655AD5800395515 /* Sentry */,
 				F85F7A2E2655AD5800395515 /* Telemetry */,
 				99335ECF268197A0009A0BAA /* Glean */,
-				993D6D4126AFE18E0075A820 /* Nimbus */,
-				993D6D4326AFE18E0075A820 /* Viaduct */,
-				993D6D4526AFE18E0075A820 /* RustLog */,
-				993D6D4726AFE18E0075A820 /* Logins */,
-				993D6D4926AFE18E0075A820 /* FxAClient */,
+				99BC50AC26C3A2F300F1A6D5 /* RustLog */,
+				99BC50AE26C3A2F300F1A6D5 /* Nimbus */,
+				99BC50B026C3A2F300F1A6D5 /* Viaduct */,
 			);
 			productName = Blockzilla;
 			productReference = E4BF2DD31BACE8CA00DA9D68 /* Firefox Klar.app */;
@@ -1636,7 +1630,7 @@
 				F8324C76264DA5F1007E4BFA /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 				F8324E0726556E45007E4BFA /* XCRemoteSwiftPackageReference "telemetry-ios" */,
 				99335ECE268197A0009A0BAA /* XCRemoteSwiftPackageReference "glean-swift" */,
-				993D6D4026AFE18E0075A820 /* XCRemoteSwiftPackageReference "rust-components-swift" */,
+				99BC50AB26C3A2F300F1A6D5 /* XCRemoteSwiftPackageReference "rust-components-swift" */,
 			);
 			productRefGroup = E4BF2DD41BACE8CA00DA9D68 /* Products */;
 			projectDirPath = "";
@@ -5143,12 +5137,12 @@
 				minimumVersion = 39.0.0;
 			};
 		};
-		993D6D4026AFE18E0075A820 /* XCRemoteSwiftPackageReference "rust-components-swift" */ = {
+		99BC50AB26C3A2F300F1A6D5 /* XCRemoteSwiftPackageReference "rust-components-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/rfk/rust-components-swift";
+			repositoryURL = "file:///Users/rfk/repos/mozilla/rust-components-swift";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.0;
+				minimumVersion = 0.3.0;
 			};
 		};
 		F8324C2D264C807C007E4BFA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
@@ -5191,30 +5185,20 @@
 			package = 99335ECE268197A0009A0BAA /* XCRemoteSwiftPackageReference "glean-swift" */;
 			productName = Glean;
 		};
-		993D6D4126AFE18E0075A820 /* Nimbus */ = {
+		99BC50AC26C3A2F300F1A6D5 /* RustLog */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 993D6D4026AFE18E0075A820 /* XCRemoteSwiftPackageReference "rust-components-swift" */;
-			productName = Nimbus;
-		};
-		993D6D4326AFE18E0075A820 /* Viaduct */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 993D6D4026AFE18E0075A820 /* XCRemoteSwiftPackageReference "rust-components-swift" */;
-			productName = Viaduct;
-		};
-		993D6D4526AFE18E0075A820 /* RustLog */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 993D6D4026AFE18E0075A820 /* XCRemoteSwiftPackageReference "rust-components-swift" */;
+			package = 99BC50AB26C3A2F300F1A6D5 /* XCRemoteSwiftPackageReference "rust-components-swift" */;
 			productName = RustLog;
 		};
-		993D6D4726AFE18E0075A820 /* Logins */ = {
+		99BC50AE26C3A2F300F1A6D5 /* Nimbus */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 993D6D4026AFE18E0075A820 /* XCRemoteSwiftPackageReference "rust-components-swift" */;
-			productName = Logins;
+			package = 99BC50AB26C3A2F300F1A6D5 /* XCRemoteSwiftPackageReference "rust-components-swift" */;
+			productName = Nimbus;
 		};
-		993D6D4926AFE18E0075A820 /* FxAClient */ = {
+		99BC50B026C3A2F300F1A6D5 /* Viaduct */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 993D6D4026AFE18E0075A820 /* XCRemoteSwiftPackageReference "rust-components-swift" */;
-			productName = FxAClient;
+			package = 99BC50AB26C3A2F300F1A6D5 /* XCRemoteSwiftPackageReference "rust-components-swift" */;
+			productName = Viaduct;
 		};
 		F85F7A282655AD5800395515 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

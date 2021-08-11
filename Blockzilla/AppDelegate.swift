@@ -5,11 +5,12 @@
 import UIKit
 import Telemetry
 import Glean
-import Nimbus
-import FxAClient
-import Logins
 import Viaduct
 import RustLog
+import Nimbus
+// TODO: for future testing of other components
+//import FxAClient
+//import Logins
 
 protocol AppSplashController {
     var splashView: UIView { get }
@@ -447,38 +448,39 @@ extension AppDelegate {
         myNimbus.initialize()
         myNimbus.fetchExperiments()
         
+        // TODO: for future testing of other components.
         // Try to create an FxA Client object
-        let fxa = FirefoxAccount(
-            contentUrl: "https://accounts.firefox.com",
-            clientId: "junk",
-            redirectUri: "junk",
-            tokenServerUrlOverride: nil
-        )
-        print("fxa oauth URL: " + (try! fxa.beginOauthFlow(scopes: ["profile"], entrypoint: "junk", metrics: nil)))
-        
+        //let fxa = FirefoxAccount(
+        //    contentUrl: "https://accounts.firefox.com",
+        //    clientId: "junk",
+        //    redirectUri: "junk",
+        //    tokenServerUrlOverride: nil
+        //)
+        //print("fxa oauth URL: " + (try! fxa.beginOauthFlow(scopes: ["profile"], entrypoint: "junk", metrics: nil)))
+        //
         // Try to make a logins DB.
-        let loginsDbPath = profilePath.flatMap {
-            URL(fileURLWithPath: $0).appendingPathComponent("logins.db").path
-        }
-        let loginsStore = LoginsStorage(databasePath: loginsDbPath!)
-        try! loginsStore.unlockWithKeyAndSalt(key: "secret", salt: "00000000000000000000000000000000")
-        if try! loginsStore.list().count == 0 {
-            print("adding login: " + (try! loginsStore.add(login: Login(
-                id: "foobar",
-                hostname: "https://example.com",
-                password: "supersekrit",
-                username: "myUser",
-                httpRealm: nil,
-                formSubmitUrl: "https://example.com/login",
-                usernameField: "",
-                passwordField: "",
-                timesUsed: 0,
-                timeCreated: 0,
-                timeLastUsed: 0,
-                timePasswordChanged: 0
-            ))))
-        }
-        print("stored logins: \(try! loginsStore.list())")
+        //let loginsDbPath = profilePath.flatMap {
+        //    URL(fileURLWithPath: $0).appendingPathComponent("logins.db").path
+        //}
+        //let loginsStore = LoginsStorage(databasePath: loginsDbPath!)
+        //try! loginsStore.unlockWithKeyAndSalt(key: "secret", salt: "00000000000000000000000000000000")
+        //if try! loginsStore.list().count == 0 {
+        //    print("adding login: " + (try! loginsStore.add(login: Login(
+        //        id: "foobar",
+        //        hostname: "https://example.com",
+        //        password: "supersekrit",
+        //        username: "myUser",
+        //        httpRealm: nil,
+        //        formSubmitUrl: "https://example.com/login",
+        //        usernameField: "",
+        //        passwordField: "",
+        //        timesUsed: 0,
+        //        timeCreated: 0,
+        //        timeLastUsed: 0,
+        //        timePasswordChanged: 0
+        //    ))))
+        //}
+        //print("stored logins: \(try! loginsStore.list())")
     }
 
     func presentModal(viewController: UIViewController, animated: Bool) {
