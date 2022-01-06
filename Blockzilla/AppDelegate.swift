@@ -5,6 +5,12 @@
 import UIKit
 import Telemetry
 import Glean
+import Viaduct
+import RustLog
+import Nimbus
+// TODO: for future testing of other components
+//import FxAClient
+//import Logins
 
 protocol AppSplashController {
     var splashView: UIView { get }
@@ -402,6 +408,79 @@ extension AppDelegate {
         }
 
         Glean.shared.initialize(uploadEnabled: Settings.getToggle(.sendAnonymousUsageData))
+
+        // Proof-of-Concept application-services guff here.
+        //
+        // We're just seeing if we can successfully import and use various application-services
+        // components, they don't really do anything in the app yet.
+        //
+        
+        // Hook up basic logging.
+        if !RustLog.shared.tryEnable({ (level, tag, message) -> Bool in
+            let logString = "[RUST][\(tag ?? "no-tag")] \(message)"
+            print(logString)
+            return true
+        }) {
+            print("ERROR: Unable to enable logging from Rust")
+        }
+        
+        // Enable networking.
+        Viaduct.shared.useReqwestBackend()
+        
+        // Try to initialize and use Nimbus SDK.
+        let profilePath = FileManager.default.containerURL(
+                forSecurityApplicationGroupIdentifier: AppInfo.sharedContainerIdentifier
+            )?
+            .appendingPathComponent("profile.profile")
+            .path
+        let nimbusDbPath = profilePath.flatMap {
+            URL(fileURLWithPath: $0).appendingPathComponent("nimbus.db").path
+        }
+        let myNimbus = try! Nimbus.create(
+            NimbusServerSettings(url: URL(string: "https://firefox.settings.services.mozilla.com")!),
+            appSettings: NimbusAppSettings(appName: "Focus", channel: "Nightly"),
+            dbPath: nimbusDbPath!,
+            resourceBundles: [],
+            errorReporter: { err in
+                try! { err in throw err }(err)
+            }
+        )
+        myNimbus.initialize()
+        myNimbus.fetchExperiments()
+        
+        // TODO: for future testing of other components.
+        // Try to create an FxA Client object
+        //let fxa = FirefoxAccount(
+        //    contentUrl: "https://accounts.firefox.com",
+        //    clientId: "junk",
+        //    redirectUri: "junk",
+        //    tokenServerUrlOverride: nil
+        //)
+        //print("fxa oauth URL: " + (try! fxa.beginOauthFlow(scopes: ["profile"], entrypoint: "junk", metrics: nil)))
+        //
+        // Try to make a logins DB.
+        //let loginsDbPath = profilePath.flatMap {
+        //    URL(fileURLWithPath: $0).appendingPathComponent("logins.db").path
+        //}
+        //let loginsStore = LoginsStorage(databasePath: loginsDbPath!)
+        //try! loginsStore.unlockWithKeyAndSalt(key: "secret", salt: "00000000000000000000000000000000")
+        //if try! loginsStore.list().count == 0 {
+        //    print("adding login: " + (try! loginsStore.add(login: Login(
+        //        id: "foobar",
+        //        hostname: "https://example.com",
+        //        password: "supersekrit",
+        //        username: "myUser",
+        //        httpRealm: nil,
+        //        formSubmitUrl: "https://example.com/login",
+        //        usernameField: "",
+        //        passwordField: "",
+        //        timesUsed: 0,
+        //        timeCreated: 0,
+        //        timeLastUsed: 0,
+        //        timePasswordChanged: 0
+        //    ))))
+        //}
+        //print("stored logins: \(try! loginsStore.list())")
     }
 
     func presentModal(viewController: UIViewController, animated: Bool) {

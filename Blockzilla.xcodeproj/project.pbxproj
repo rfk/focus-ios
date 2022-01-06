@@ -60,6 +60,10 @@
 		747ADA181FC38EFC00970132 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747ADA171FC38EFC00970132 /* IntroViewController.swift */; };
 		74F94FF21FD9CA070047E629 /* Intro.strings in Resources */ = {isa = PBXBuildFile; fileRef = 74F94FF41FD9CA070047E629 /* Intro.strings */; };
 		846A23182668CC4500DB3C37 /* FullScreen.js in Resources */ = {isa = PBXBuildFile; fileRef = 846A23172668CC4500DB3C37 /* FullScreen.js */; };
+		99335ED0268197A0009A0BAA /* Glean in Frameworks */ = {isa = PBXBuildFile; productRef = 99335ECF268197A0009A0BAA /* Glean */; };
+		99F9B8E926C3AB7B0047F708 /* RustLog in Frameworks */ = {isa = PBXBuildFile; productRef = 99F9B8E826C3AB7B0047F708 /* RustLog */; };
+		99F9B8EB26C3AB7B0047F708 /* Viaduct in Frameworks */ = {isa = PBXBuildFile; productRef = 99F9B8EA26C3AB7B0047F708 /* Viaduct */; };
+		99F9B8ED26C3AB7B0047F708 /* Nimbus in Frameworks */ = {isa = PBXBuildFile; productRef = 99F9B8EC26C3AB7B0047F708 /* Nimbus */; };
 		A89766DA1F57DCA9008183C5 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		B3481A551FCF261900CA2EA6 /* AutocompleteCustomUrlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3481A541FCF261900CA2EA6 /* AutocompleteCustomUrlViewController.swift */; };
 		B3AFC2BC1F7C0B9F001AEF38 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AFC2BB1F7C0B9F001AEF38 /* WebViewController.swift */; };
@@ -178,7 +182,6 @@
 		F85F7A2B2655AD5800395515 /* Fuzi in Frameworks */ = {isa = PBXBuildFile; productRef = F85F7A2A2655AD5800395515 /* Fuzi */; };
 		F85F7A2D2655AD5800395515 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = F85F7A2C2655AD5800395515 /* Sentry */; };
 		F85F7A2F2655AD5800395515 /* Telemetry in Frameworks */ = {isa = PBXBuildFile; productRef = F85F7A2E2655AD5800395515 /* Telemetry */; };
-		F85F7A352656885C00395515 /* Glean in Frameworks */ = {isa = PBXBuildFile; productRef = F85F7A342656885C00395515 /* Glean */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -950,8 +953,11 @@
 				F85F7A292655AD5800395515 /* SnapKit in Frameworks */,
 				F85F7A2F2655AD5800395515 /* Telemetry in Frameworks */,
 				F85F7A2B2655AD5800395515 /* Fuzi in Frameworks */,
+				99F9B8E926C3AB7B0047F708 /* RustLog in Frameworks */,
+				99F9B8ED26C3AB7B0047F708 /* Nimbus in Frameworks */,
+				99F9B8EB26C3AB7B0047F708 /* Viaduct in Frameworks */,
 				F85F7A2D2655AD5800395515 /* Sentry in Frameworks */,
-				F85F7A352656885C00395515 /* Glean in Frameworks */,
+				99335ED0268197A0009A0BAA /* Glean in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1447,7 +1453,10 @@
 				F85F7A2A2655AD5800395515 /* Fuzi */,
 				F85F7A2C2655AD5800395515 /* Sentry */,
 				F85F7A2E2655AD5800395515 /* Telemetry */,
-				F85F7A342656885C00395515 /* Glean */,
+				99335ECF268197A0009A0BAA /* Glean */,
+				99F9B8E826C3AB7B0047F708 /* RustLog */,
+				99F9B8EA26C3AB7B0047F708 /* Viaduct */,
+				99F9B8EC26C3AB7B0047F708 /* Nimbus */,
 			);
 			productName = Blockzilla;
 			productReference = E4BF2DD31BACE8CA00DA9D68 /* Firefox Klar.app */;
@@ -1620,7 +1629,8 @@
 				F8324CB8264DC8ED007E4BFA /* XCRemoteSwiftPackageReference "Fuzi" */,
 				F8324C76264DA5F1007E4BFA /* XCRemoteSwiftPackageReference "sentry-cocoa" */,
 				F8324E0726556E45007E4BFA /* XCRemoteSwiftPackageReference "telemetry-ios" */,
-				F85F7A332656885C00395515 /* XCRemoteSwiftPackageReference "glean-swift" */,
+				99335ECE268197A0009A0BAA /* XCRemoteSwiftPackageReference "glean-swift" */,
+				99F9B8E726C3AB7B0047F708 /* XCRemoteSwiftPackageReference "rust-components-swift" */,
 			);
 			productRefGroup = E4BF2DD41BACE8CA00DA9D68 /* Products */;
 			projectDirPath = "";
@@ -5119,6 +5129,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		99335ECE268197A0009A0BAA /* XCRemoteSwiftPackageReference "glean-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mozilla/glean-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 39.0.0;
+			};
+		};
+		99F9B8E726C3AB7B0047F708 /* XCRemoteSwiftPackageReference "rust-components-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mozilla/rust-components-swift";
+			requirement = {
+				kind = exactVersion;
+				version = 0.0.1;
+			};
+		};
 		F8324C2D264C807C007E4BFA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -5151,17 +5177,29 @@
 				kind = branch;
 			};
 		};
-		F85F7A332656885C00395515 /* XCRemoteSwiftPackageReference "glean-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mozilla/glean-swift/";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 39.0.2;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		99335ECF268197A0009A0BAA /* Glean */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99335ECE268197A0009A0BAA /* XCRemoteSwiftPackageReference "glean-swift" */;
+			productName = Glean;
+		};
+		99F9B8E826C3AB7B0047F708 /* RustLog */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99F9B8E726C3AB7B0047F708 /* XCRemoteSwiftPackageReference "rust-components-swift" */;
+			productName = RustLog;
+		};
+		99F9B8EA26C3AB7B0047F708 /* Viaduct */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99F9B8E726C3AB7B0047F708 /* XCRemoteSwiftPackageReference "rust-components-swift" */;
+			productName = Viaduct;
+		};
+		99F9B8EC26C3AB7B0047F708 /* Nimbus */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99F9B8E726C3AB7B0047F708 /* XCRemoteSwiftPackageReference "rust-components-swift" */;
+			productName = Nimbus;
+		};
 		F85F7A282655AD5800395515 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F8324C2D264C807C007E4BFA /* XCRemoteSwiftPackageReference "SnapKit" */;
@@ -5181,11 +5219,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F8324E0726556E45007E4BFA /* XCRemoteSwiftPackageReference "telemetry-ios" */;
 			productName = Telemetry;
-		};
-		F85F7A342656885C00395515 /* Glean */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F85F7A332656885C00395515 /* XCRemoteSwiftPackageReference "glean-swift" */;
-			productName = Glean;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
