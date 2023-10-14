@@ -8,7 +8,7 @@ import Telemetry
 import LocalAuthentication
 import Intents
 import IntentsUI
-import Glean
+import NimbusStandalone
 
 class SettingsTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
